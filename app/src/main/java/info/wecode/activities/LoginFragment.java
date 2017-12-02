@@ -1,18 +1,19 @@
 package info.wecode.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import info.wecode.AppConstants;
 import info.wecode.MainActivity;
 import info.wecode.R;
 import info.wecode.database.UserDatabase;
 
-public class LoginActivity extends Activity {
+public class LoginFragment extends AppCompatActivity {
 
     EditText userNameET;
     EditText passwordET;
@@ -22,6 +23,7 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+       // getLayoutInflater().inflate(R.layout.activity_main, mFrameLayout);
         userNameET = (EditText) findViewById(R.id.loginUserNameET);
         passwordET = (EditText) findViewById(R.id.loginPasswordET);
         loginBtn = (Button) findViewById(R.id.loginBtn);
@@ -46,9 +48,9 @@ public class LoginActivity extends Activity {
                         On successful login, user is redirected to MainActivity
                          */
                         Bundle bundle = new Bundle();
-                        bundle.putBoolean("login", true);
+                        bundle.putBoolean(AppConstants.LOGIN_FLAG, true);
                         Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_LONG).show();
-                        Intent mainActivityIntent = new Intent(LoginActivity.this, MainActivity.class);
+                        Intent mainActivityIntent = new Intent(LoginFragment.this, MainActivity.class);
                         mainActivityIntent.putExtras(bundle);
                         startActivity(mainActivityIntent);
                         finish();
