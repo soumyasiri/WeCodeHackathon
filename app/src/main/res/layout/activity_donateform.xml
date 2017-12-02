@@ -1,6 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/donationFromTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/oswald_light"
+                android:gravity="center"
+                android:text="DONATION FORM"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                android:textColor="#9d3f90"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/donationTextTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+
+                android:text="Please input your donation information so we can track your milk and send you kind wishes your way."
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/dateET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:ems="10"
+                android:hint="Enter date"
+                android:inputType="date"
+                android:text="Date"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/milkVolumeET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:text="Volume of Milk"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/locationTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:completionHint="Location"
+                android:text="Select Location"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp" />
+
+
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:backgroundTint="@color/colorPurple"
+                android:fontFamily="@font/oswald"
+                android:text="Submit"
+                android:textColor="#ffffff" />
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

@@ -2,7 +2,6 @@ package info.wecode;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
@@ -16,11 +15,11 @@ import android.view.View;
 
 import info.wecode.fragments.MapFragment;
 
+import info.wecode.activities.DonationActivity;
+import info.wecode.activities.FAQActivity;
 import info.wecode.activities.LoginActivity;
 import info.wecode.activities.ShareActivity;
 import info.wecode.database.UserDatabase;
-
-import info.wecode.activities.FAQActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -125,7 +124,7 @@ public class MainActivity extends AppCompatActivity
             Intent loginActivityIntent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(loginActivityIntent);
         } else if (id == R.id.nav_donor_form) {
-            //  startActivity(new Intent(this, Item1Activity.class));
+            startActivity(new Intent(this, DonationActivity.class));
         } else if (id == R.id.nav_status) {
 
         } else if (id == R.id.nav_faq) {
