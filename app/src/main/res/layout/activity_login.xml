@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#595959"
@@ -36,6 +36,7 @@
             android:padding="20dp">
 
             <LinearLayout
+                android:id="@+id/loginLayout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -79,6 +80,19 @@
                     android:textColor="#fff"
                     android:textSize="18sp" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/signupBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="italic"
+                android:text="Sign Up"
+                android:layout_below="@id/loginLayout"
+                android:gravity="center_horizontal|center"
+                android:textColor="@android:color/holo_blue_bright"
+                android:textSize="16sp" />
+
         </RelativeLayout>
 
     </RelativeLayout>
