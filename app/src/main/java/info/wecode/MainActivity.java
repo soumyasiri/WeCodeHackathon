@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import info.wecode.activities.LoginActivity;
+import info.wecode.activities.ShareActivity;
 import info.wecode.database.UserDatabase;
 
 public class MainActivity extends AppCompatActivity
@@ -123,7 +124,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_faq) {
 
         } else if (id == R.id.nav_share) {
-
+            startActivity(new Intent(this, ShareActivity.class));
         } else if (id == R.id.nav_contact_info) {
 
         }
