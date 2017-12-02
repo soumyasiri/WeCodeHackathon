@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import info.wecode.activities.ContactActivity;
 import info.wecode.activities.DonationActivity;
 import info.wecode.activities.FAQActivity;
 import info.wecode.activities.LoginActivity;
@@ -130,7 +131,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
             startActivity(new Intent(this, ShareActivity.class));
         } else if (id == R.id.nav_contact_info) {
-
+            startActivity(new Intent(this, ContactActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
