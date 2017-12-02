@@ -1,8 +1,10 @@
 package info.wecode;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import info.wecode.activities.FAQActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -67,10 +71,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings)
+        {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -87,6 +91,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_status) {
 
         } else if (id == R.id.nav_faq) {
+            Intent i = new Intent(MainActivity.this, FAQActivity.class);
+            startActivity(i);
 
         } else if (id == R.id.nav_share) {
 
