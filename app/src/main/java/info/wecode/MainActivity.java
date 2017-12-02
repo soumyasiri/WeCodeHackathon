@@ -126,8 +126,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_status) {
 
         } else if (id == R.id.nav_faq) {
-            Intent i = new Intent(MainActivity.this, FAQActivity.class);
-            startActivity(i);
+            Intent faqActivityIntent = new Intent(MainActivity.this, FAQActivity.class);
+            startActivity(faqActivityIntent);
 
         } else if (id == R.id.nav_share) {
 

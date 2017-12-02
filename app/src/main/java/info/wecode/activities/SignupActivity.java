@@ -16,7 +16,7 @@ import info.wecode.database.UserDatabase;
 public class SignupActivity extends AppCompatActivity {
 
     /**
-     * This activity will help the donar user to do registration, user is asked to enter username, password and confirm password.
+     * This activity will help the donor user to do registration, user is asked to enter username, password and confirm password.
      */
 
     public class SignUpActivity extends Activity {

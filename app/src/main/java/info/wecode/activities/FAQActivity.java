@@ -17,7 +17,7 @@ import info.wecode.R;
  * Created by alexabaldwin on 12/2/17.
  */
 
-public class FAQActivity extends MainActivity
+public class FAQActivity extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
