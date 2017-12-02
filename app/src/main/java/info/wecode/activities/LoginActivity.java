@@ -1,11 +1,13 @@
 package info.wecode.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import info.wecode.AppConstants;
@@ -13,20 +15,24 @@ import info.wecode.MainActivity;
 import info.wecode.R;
 import info.wecode.database.UserDatabase;
 
-public class LoginFragment extends AppCompatActivity {
+public class LoginActivity extends MainActivity {
 
     EditText userNameET;
     EditText passwordET;
     Button loginBtn;
+    TextView signUpBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-       // getLayoutInflater().inflate(R.layout.activity_main, mFrameLayout);
+        LayoutInflater inflater = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.activity_login, null, false);
+        mDrawer.addView(contentView, 0);
         userNameET = (EditText) findViewById(R.id.loginUserNameET);
         passwordET = (EditText) findViewById(R.id.loginPasswordET);
         loginBtn = (Button) findViewById(R.id.loginBtn);
+        signUpBtn = (TextView) findViewById(R.id.signupBtn);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,15 +54,27 @@ public class LoginFragment extends AppCompatActivity {
                         On successful login, user is redirected to MainActivity
                          */
                         Bundle bundle = new Bundle();
+                        if (userName.equals("admin") && pwd.equals("admin")) {
+                            bundle.putString(AppConstants.USER_TITLE, AppConstants.USER_TITLE_ADMIN);
+                        } else {
+                            bundle.putString(AppConstants.USER_TITLE, AppConstants.USER_TITLE_DONOR);
+                        }
                         bundle.putBoolean(AppConstants.LOGIN_FLAG, true);
                         Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_LONG).show();
-                        Intent mainActivityIntent = new Intent(LoginFragment.this, MainActivity.class);
+                        Intent mainActivityIntent = new Intent(LoginActivity.this, MainActivity.class);
                         mainActivityIntent.putExtras(bundle);
                         startActivity(mainActivityIntent);
                         finish();
                     }
 
                 }
+            }
+        });
+
+        signUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, SignupActivity.class));
             }
         });
 
