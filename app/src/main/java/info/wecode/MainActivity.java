@@ -2,6 +2,9 @@ package info.wecode;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,6 +17,8 @@ import android.view.MenuItem;
 import info.wecode.activities.LoginActivity;
 import info.wecode.activities.ShareActivity;
 import info.wecode.database.UserDatabase;
+
+import info.wecode.activities.FAQActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -122,6 +127,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_status) {
 
         } else if (id == R.id.nav_faq) {
+            Intent faqActivityIntent = new Intent(MainActivity.this, FAQActivity.class);
+            startActivity(faqActivityIntent);
 
         } else if (id == R.id.nav_share) {
             startActivity(new Intent(this, ShareActivity.class));
