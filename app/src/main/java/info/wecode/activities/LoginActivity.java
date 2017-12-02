@@ -54,6 +54,11 @@ public class LoginActivity extends MainActivity {
                         On successful login, user is redirected to MainActivity
                          */
                         Bundle bundle = new Bundle();
+                        if (userName.equals("admin") && pwd.equals("admin")) {
+                            bundle.putString(AppConstants.USER_TITLE, AppConstants.USER_TITLE_ADMIN);
+                        } else {
+                            bundle.putString(AppConstants.USER_TITLE, AppConstants.USER_TITLE_DONOR);
+                        }
                         bundle.putBoolean(AppConstants.LOGIN_FLAG, true);
                         Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_LONG).show();
                         Intent mainActivityIntent = new Intent(LoginActivity.this, MainActivity.class);
