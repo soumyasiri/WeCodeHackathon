@@ -1,14 +1,5 @@
 package info.wecode.fragments;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-
-import info.wecode.R;
-
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -18,7 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.util.List;
+
+import info.wecode.R;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
@@ -52,7 +52,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         mAddress = getArguments().getString(ADDRESS);
         FragmentManager fragmentManager = getChildFragmentManager();
         SupportMapFragment supportMapFragment = (SupportMapFragment) fragmentManager
-                .findFragmentById(R.id.nav_map);
+                .findFragmentById(R.id.map);
         supportMapFragment.getMapAsync(this);
 
         return view;
