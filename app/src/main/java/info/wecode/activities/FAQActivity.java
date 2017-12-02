@@ -14,6 +14,7 @@ import info.wecode.R;
  */
 
 public class FAQActivity extends MainActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,8 @@ public class FAQActivity extends MainActivity {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View contentView = inflater.inflate(R.layout.faq_main, null, false);
         mDrawer.addView(contentView, 0);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         TextView question1 = findViewById(R.id.questionTV2);
         question1.setText("Why is donor milk important?");
         TextView answer1 = findViewById(R.id.answerTV2);
@@ -49,7 +52,7 @@ public class FAQActivity extends MainActivity {
         TextView question6 = findViewById(R.id.questionTV10);
         question6.setText("Where does my milk go?");
         TextView answer6 = findViewById(R.id.answerTV10);
-        answer6.setText("Your milk is distributed locally to babies in need. NWMMB provides donated pasteurized milk to every Level 3 NICU in Oregon and hospitals across Washington, Alaska, and Idaho. Since our opening, over 260,000 ounces of donated pasteurized breastmilk was distributed to fragile and premature infants in over 50 hospitals across the Pacific Northwest.\n");
+        answer6.setText("Your milk is distributed locally to babies in need. NWMMB provides donated pasteurized milk to every Level 3 NICU in Oregon and hospitals across Washington, Alaska, and Idaho. Since our opening, over 260,000 ounces of donated pasteurized breastmilk was distributed to fragile and premature infants in over 50 hospitals across the Pacific Northwest.");
 
         TextView question7 = findViewById(R.id.questionTV9);
         question7.setText("Is donor milk safe?");
@@ -96,6 +99,5 @@ public class FAQActivity extends MainActivity {
                 " \n" +
                 "NWMMB is a member of the Human Milk Banking Association of North America, the leading professional organization of not-for-profit milk banks in Mexico, Canada, and the United States. For-profit milk banks are privately owned by individuals through stock options, are aimed at increasing profits for the owners, and most often sell their pasteurized breastmilk to mothers across the nation and large corporations.");
     }
-
 
 }
