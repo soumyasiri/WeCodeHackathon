@@ -1,13 +1,9 @@
 package info.wecode.activities;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.TextView;
 
 import info.wecode.MainActivity;
@@ -17,15 +13,16 @@ import info.wecode.R;
  * Created by alexabaldwin on 12/2/17.
  */
 
-public class FAQActivity extends AppCompatActivity
-{
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.faq_main);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+public class FAQActivity extends MainActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        LayoutInflater inflater = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.faq_main, null, false);
+        mDrawer.addView(contentView, 0);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView question1 = findViewById(R.id.questionTV2);
         question1.setText("Why is donor milk important?");
@@ -55,7 +52,7 @@ public class FAQActivity extends AppCompatActivity
         TextView question6 = findViewById(R.id.questionTV10);
         question6.setText("Where does my milk go?");
         TextView answer6 = findViewById(R.id.answerTV10);
-        answer6.setText("Your milk is distributed locally to babies in need. NWMMB provides donated pasteurized milk to every Level 3 NICU in Oregon and hospitals across Washington, Alaska, and Idaho. Since our opening, over 260,000 ounces of donated pasteurized breastmilk was distributed to fragile and premature infants in over 50 hospitals across the Pacific Northwest.\n");
+        answer6.setText("Your milk is distributed locally to babies in need. NWMMB provides donated pasteurized milk to every Level 3 NICU in Oregon and hospitals across Washington, Alaska, and Idaho. Since our opening, over 260,000 ounces of donated pasteurized breastmilk was distributed to fragile and premature infants in over 50 hospitals across the Pacific Northwest.");
 
         TextView question7 = findViewById(R.id.questionTV9);
         question7.setText("Is donor milk safe?");
@@ -102,6 +99,5 @@ public class FAQActivity extends AppCompatActivity
                 " \n" +
                 "NWMMB is a member of the Human Milk Banking Association of North America, the leading professional organization of not-for-profit milk banks in Mexico, Canada, and the United States. For-profit milk banks are privately owned by individuals through stock options, are aimed at increasing profits for the owners, and most often sell their pasteurized breastmilk to mothers across the nation and large corporations.");
     }
-
 
 }
