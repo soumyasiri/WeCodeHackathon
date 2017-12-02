@@ -22,8 +22,6 @@
 
         <activity android:name=".activities.LoginFragment"/>
         <activity android:name=".activities.SignupActivity"/>
-
-
     </application>
 
 </manifest>
