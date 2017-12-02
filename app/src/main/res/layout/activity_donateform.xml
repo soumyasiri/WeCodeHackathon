@@ -46,7 +46,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:backgroundTint="@color/colorPurple"
-        android:fontFamily="@font/oswald/bold"
+        android:fontFamily="@font/oswald"
         android:text="Submit"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
