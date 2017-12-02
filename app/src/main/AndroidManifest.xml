@@ -20,9 +20,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.FAQActivity"></activity>
-        <activity android:name=".activities.LoginActivity"/>
-        <activity android:name=".activities.SignupActivity"/>
-        <activity android:name=".activities.ShareActivity"/>
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.SignupActivity" />
+        <activity android:name=".activities.ShareActivity" />
+        <activity android:name=".activities.DonationActivity" />
     </application>
 
 </manifest>
