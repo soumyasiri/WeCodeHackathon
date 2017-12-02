@@ -9,10 +9,11 @@ public class UserDatabase {
 
 
     public static void fillUsers(){
-        mUserCredentialsMap.put("donar1", "password");
-        mUserCredentialsMap.put("donar2", "password");
-        mUserCredentialsMap.put("donar3", "password");
-        mUserCredentialsMap.put("donar4", "password");
+        mUserCredentialsMap.put("admin", "admin");
+        mUserCredentialsMap.put("donor1", "pwd");
+        mUserCredentialsMap.put("donor2", "pwd");
+        mUserCredentialsMap.put("donor3", "pwd");
+        mUserCredentialsMap.put("donor4", "pwd");
     }
 
     public static void store(String username, String password){
