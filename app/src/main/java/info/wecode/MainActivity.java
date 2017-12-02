@@ -11,13 +11,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import info.wecode.activities.LoginFragment;
+import info.wecode.activities.LoginActivity;
 import info.wecode.database.UserDatabase;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-   // protected FrameLayout mFrameLayout;
+    public DrawerLayout mDrawer;
 
     public static String mTitle = AppConstants.USER_TITLE_DONOR;
     public static boolean mLoginFlag = false;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity
 
         //mFrameLayout = (FrameLayout)findViewById(R.id.content_frame);
 
-       // FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        // FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -50,10 +50,10 @@ public class MainActivity extends AppCompatActivity
 //            }
 //        });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+                this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -114,10 +114,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_login) {
-            Intent loginActivityIntent = new Intent(MainActivity.this, LoginFragment.class);
+            Intent loginActivityIntent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(loginActivityIntent);
         } else if (id == R.id.nav_donor_form) {
-          //  startActivity(new Intent(this, Item1Activity.class));
+            //  startActivity(new Intent(this, Item1Activity.class));
         } else if (id == R.id.nav_status) {
 
         } else if (id == R.id.nav_faq) {
