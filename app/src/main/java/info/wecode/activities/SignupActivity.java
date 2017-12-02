@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 import info.wecode.R;
 import info.wecode.database.UserDatabase;
 
-public class SignupActivity extends Activity {
+public class SignupActivity extends AppCompatActivity {
 
     /**
      * This activity will help the donar user to do registration, user is asked to enter username, password and confirm password.
@@ -29,6 +30,7 @@ public class SignupActivity extends Activity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_signup);
+          //  getLayoutInflater().inflate(R.layout.activity_main, mFrameLayout);
             userNameET = (EditText) findViewById(R.id.usernameET);
             passwordET = (EditText) findViewById(R.id.passwordET);
             confirmpasswordET = (EditText) findViewById(R.id.confirmpasswordET);
@@ -52,7 +54,7 @@ public class SignupActivity extends Activity {
                     /*
                     On successful registration, user is redirected to login activity
                      */
-                        Intent mainActivityIntent = new Intent(SignupActivity.this, LoginActivity.class);
+                        Intent mainActivityIntent = new Intent(SignupActivity.this, LoginFragment.class);
                         startActivity(mainActivityIntent);
                         finish();
                     }

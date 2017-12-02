@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,10 +14,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import info.wecode.activities.LoginFragment;
+import info.wecode.database.UserDatabase;
+
 import info.wecode.activities.FAQActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+   // protected FrameLayout mFrameLayout;
+
+    public static String mTitle = AppConstants.USER_TITLE_DONOR;
+    public static boolean mLoginFlag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +33,27 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        UserDatabase.fillUsers();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        Intent intent = getIntent();
+        if (null != intent) { //Null Checking
+            mTitle = intent.getStringExtra(AppConstants.USER_TITLE);
+            mLoginFlag = intent.getBooleanExtra(AppConstants.LOGIN_FLAG, false);
+        } else {
+            mTitle = AppConstants.USER_TITLE_DONOR;
+            mLoginFlag = false;
+        }
+
+        //mFrameLayout = (FrameLayout)findViewById(R.id.content_frame);
+
+       // FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -43,6 +62,21 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        if (mTitle != null && mTitle.equals(AppConstants.USER_TITLE_ADMIN)) {
+            navigationView.inflateMenu(R.menu.activity_admin_drawer);
+        } else if (mTitle != null && mTitle.equals(AppConstants.USER_TITLE_DONOR)) {
+            navigationView.inflateMenu(R.menu.activity_donor_drawer);
+        }
+        if (mLoginFlag) {
+            Menu menu = navigationView.getMenu();
+
+            // find MenuItem you want to change
+            MenuItem nav_camara = menu.findItem(R.id.nav_login);
+
+            // set new title to the MenuItem
+            nav_camara.setTitle("Account");
+        }
+
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -71,10 +105,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
-        {
+        if (id == R.id.action_settings) {
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -85,9 +119,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_login) {
-            // Handle the camera action
+            Intent loginActivityIntent = new Intent(MainActivity.this, LoginFragment.class);
+            startActivity(loginActivityIntent);
         } else if (id == R.id.nav_donor_form) {
-
+          //  startActivity(new Intent(this, Item1Activity.class));
         } else if (id == R.id.nav_status) {
 
         } else if (id == R.id.nav_faq) {
