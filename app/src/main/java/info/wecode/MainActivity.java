@@ -13,11 +13,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import info.wecode.activities.DonationActivity;
 import info.wecode.activities.FAQActivity;
 import info.wecode.activities.LoginActivity;
 import info.wecode.activities.ShareActivity;
 import info.wecode.database.UserDatabase;
+
 import info.wecode.fragments.MapFragment;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -124,7 +127,7 @@ public class MainActivity extends AppCompatActivity
             Intent loginActivityIntent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(loginActivityIntent);
         } else if (id == R.id.nav_donor_form) {
-            //  startActivity(new Intent(this, Item1Activity.class));
+            startActivity(new Intent(this, DonationActivity.class));
         } else if (id == R.id.nav_status) {
 
         } else if (id == R.id.nav_faq) {
