@@ -50,10 +50,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.activity_map, container, false);
         mAddress = getArguments().getString(ADDRESS);
-        FragmentManager fragmentManager = getChildFragmentManager();
-        SupportMapFragment supportMapFragment = (SupportMapFragment) fragmentManager
-                .findFragmentById(R.id.map);
-        supportMapFragment.getMapAsync(this);
+//        FragmentManager fragmentManager = getChildFragmentManager();
+//        SupportMapFragment supportMapFragment = (SupportMapFragment) fragmentManager
+//                .findFragmentById(R.id.map);
+//        supportMapFragment.getMapAsync(this);
 
         return view;
     }
@@ -92,8 +92,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         // Add a marker in Sydney and move the camera
         LatLng hackathon = new LatLng(latitude, longitude);
-        mMap.addMarker(new MarkerOptions().position(hackathon).title(getResources()
-                .getString(R.string.map_marker)));
+       // mMap.addMarker(new MarkerOptions().position(hackathon).title(getResources()
+//                .getString(R.string.map_marker)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(hackathon));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
     }
